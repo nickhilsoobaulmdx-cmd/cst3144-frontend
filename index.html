@@ -71,7 +71,7 @@
 
         <!-- Every lesson added to the cart, with a Remove button -->
         <div class="cart-item" v-for="(id, index) in cart" v-bind:key="index">
-            {{ getLesson(id).subject }} - {{ getLesson(id).location }} - £{{ getLesson(id).price }}
+            {{ getLesson(id).subject }} - {{ getLesson(id).location }} - Rs{{ getLesson(id).price }}
             <button v-on:click="removeFromCart(index)">Remove</button>
         </div>
         <p v-if="cart.length === 0"> Your cart is empty.</p> 
