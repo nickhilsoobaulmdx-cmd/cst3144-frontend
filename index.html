@@ -52,6 +52,7 @@
         </div>
 
         <!-- v-for shows every lesson -->
+        <p v-if="loading">Loading lessons...</p>
         <div class="lessons">
             <div class="lesson" v-for="lesson in sortedLessons" v-bind:key="lesson._id">
                 <img v-bind:src="BASE_URL + '/' + lesson.image" v-bind:alt="lesson.subject">
@@ -102,6 +103,7 @@
                 sitename: "After School Lessons",
                 BASE_URL: "https://m00969005-after-school.onrender.com",
                 lessons: [],
+                                loading: true,
                 cart: [],                 // stores the _id of each lesson added
                 showLessons: true,
                 sortAttribute: "subject",
@@ -151,6 +153,7 @@
             async fetchLessons() {
                 let response = await fetch(this.BASE_URL + "/lessons");
                 this.lessons = await response.json();
+                                this.loading = false;
             },
 
             addToCart(lesson) {
