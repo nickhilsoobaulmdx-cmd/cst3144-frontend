@@ -74,7 +74,8 @@
             {{ getLesson(id).subject }} - {{ getLesson(id).location }} - £{{ getLesson(id).price }}
             <button v-on:click="removeFromCart(index)">Remove</button>
         </div>
-        <p v-if="cart.length === 0">Your cart is empty.</p>
+        <p v-if="cart.length === 0"> Your cart is empty.</p> 
+        <p v-if="cart.length > 0"><strong>Total: £{{ totalPrice }}</strong></p>
 
         <!-- Checkout (part of the cart page) -->
         <h2>Checkout</h2>
@@ -132,6 +133,13 @@
             },
             phoneIsValid() {
                 return /^[0-9]+$/.test(this.order.phone);
+            },
+                        totalPrice() {
+                let total = 0;
+                for (let id of this.cart) {
+                    total = total + this.getLesson(id).price;
+                }
+                return total;
             },
             canCheckout() {
                 return this.nameIsValid && this.phoneIsValid && this.cart.length > 0;
