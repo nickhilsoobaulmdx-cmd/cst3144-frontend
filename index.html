@@ -74,6 +74,7 @@
             {{ getLesson(id).subject }} - {{ getLesson(id).location }} - £{{ getLesson(id).price }}
             <button v-on:click="removeFromCart(index)">Remove</button>
         </div>
+        <p v-if="cart.length === 0">Your cart is empty.</p>
 
         <!-- Checkout (part of the cart page) -->
         <h2>Checkout</h2>
