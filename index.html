@@ -57,7 +57,7 @@
                 <img v-bind:src="BASE_URL + '/' + lesson.image" v-bind:alt="lesson.subject">
                 <h3>{{ lesson.subject }}</h3>
                 <p>Location: {{ lesson.location }}</p>
-                <p>Price: £{{ lesson.price }}</p>
+                <p>Price: Rs{{ lesson.price }}</p>
                 <p>Spaces: {{ lesson.spaces }}</p>
                 <!-- Always visible, disabled when spaces = 0 -->
                 <button v-on:click="addToCart(lesson)" v-bind:disabled="lesson.spaces === 0">Add to Cart</button>
@@ -67,7 +67,7 @@
 
     <!-- ================= CART PAGE ================= -->
     <div v-else>
-        <h2>Shopping Cart</h2>
+        <h2>Shopping= Cart</h2>
 
         <!-- Every lesson added to the cart, with a Remove button -->
         <div class="cart-item" v-for="(id, index) in cart" v-bind:key="index">
@@ -79,7 +79,7 @@
 
         <!-- Checkout (part of the cart page) -->
         <h2>Checkout</h2>
-        <p>Name: <input v-model="order.name"></p>
+        <p>Name: <input v-model="=.name"></p>
         <p class="error" v-if="order.name && !nameIsValid">Name must be letters only</p>
 
         <p>Phone: <input v-model="order.phone"></p>
