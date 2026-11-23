@@ -61,6 +61,7 @@
                 <p>Price: Rs{{ lesson.price }}</p>
                 <p>Spaces: {{ lesson.spaces }}</p>
                 <!-- Always visible, disabled when spaces = 0 -->
+                <p class="error" v-if="lesson.spaces === 0">Fully booked</p>
                 <button v-on:click="addToCart(lesson)" v-bind:disabled="lesson.spaces === 0">Add to Cart</button>
             </div>
         </div>
